@@ -34,6 +34,46 @@ position:relative;
 
 <body>
 
+<script>
+
+if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+
+document.body.innerHTML = `
+<h1>⚠️ Μικρό πρόβλημα</h1>
+<p>Για κάποιο λόγο αυτό το quiz λειτουργεί μόνο σε υπολογιστή 😅</p>
+<p>Άνοιξέ το από laptop ή desktop.</p>
+`;
+
+}
+
+function showQuestion(){
+
+document.getElementById("quiz").style.display="none";
+document.getElementById("questionBox").style.display="block";
+
+}
+
+function moveButton(){
+
+let btn=document.getElementById("no");
+
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-100);
+
+btn.style.position="absolute";
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+
+}
+
+function yesClicked(){
+
+document.body.innerHTML="<h1>teleia na eisai etoimh...😉!</h1>";
+
+}
+
+</script>
+
 <h1>Quick Questionnaire</h1>
 
 <div id="quiz">
@@ -107,11 +147,4 @@ document.body.innerHTML="<h1>teleia na eisai etoimh...😉!</h1>";
 </body>
 </html>
 
-if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
 
-document.body.innerHTML = `
-<h1>⚠️ Αυτό το site λειτουργεί μόνο σε υπολογιστή</h1>
-<p>Άνοιξέ το από laptop ή desktop.</p>
-`;
-
-}
